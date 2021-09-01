@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
@@ -75,6 +76,16 @@ namespace HtmlSanitizerTest
             var result = JsonConvert.DeserializeObject<Employee>(jsonString, settings);
             Console.WriteLine(result?.FullName);
         }
+
+        [Test]
+        public void Test20210901_007()
+        {
+            string TestString = "<img src=x onerror=alert(1)>";
+            string encodedString = HttpUtility.HtmlEncode(TestString);
+            Console.WriteLine(encodedString);
+        }
+
+
     }
 
     public class Employee
