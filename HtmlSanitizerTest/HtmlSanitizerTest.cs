@@ -65,9 +65,7 @@ namespace HtmlSanitizerTest
         public void Test20210901_006()
         {
             var settings = new JsonSerializerSettings();
-
             settings.StringEscapeHandling = StringEscapeHandling.EscapeHtml;
-            settings.TypeNameHandling = TypeNameHandling.None;
 
             var html =
                 @"\u003C\u0069\u006D\u0067\u0020\u0073\u0072\u0063\u003D\u0078\u0020\u006F\u006E\u0065\u0072\u0072\u006F\u0072\u003D\u0061\u006C\u0065\u0072\u0074\u0028\u0031\u0029\u003E";
