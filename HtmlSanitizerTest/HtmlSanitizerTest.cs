@@ -16,5 +16,12 @@ namespace HtmlSanitizerTest
             Console.WriteLine("hello world!");
         }
 
+        [Test]
+        public void Test20210901_002()
+        {
+            var html = @"<script>alert('xss')</script><div onload=""alert('xss')""";
+            CrossSiteScriptingValidation.ValidateDangerousString(html, 1);
+            Console.WriteLine();
+        }
     }
 }
