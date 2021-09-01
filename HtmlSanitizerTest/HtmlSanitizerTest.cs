@@ -43,6 +43,10 @@ namespace HtmlSanitizerTest
             var result = JsonConvert.SerializeObject(employee, settings);
             Console.WriteLine(result);
             //{"FullName":"chucklu"}
+
+            employee.FullName = "<img src=x onerror=alert(1)>";
+            result = JsonConvert.SerializeObject(employee, settings);
+            Console.WriteLine(result);
         }
 
         [Test]
